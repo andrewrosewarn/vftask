@@ -6,16 +6,13 @@ import Button from "../common/Button";
 import Container from "../common/Container";
 import Paper from "../common/Paper";
 import Typography from "../common/Typography";
+import ProductImage from "./ProductImage";
 
 const StyledProductListItem = styled.li``;
 
 const ImageContainer = styled.div`
   background-color: rgb(245, 243, 246);
   padding: 1rem;
-`;
-
-const Image = styled.img`
-  max-width: 100%;
 `;
 
 const DetailContainer = styled.div`
@@ -57,7 +54,7 @@ export default function ProductListItem({ product }: Props) {
       <Paper>
         <Container>
           <ImageContainer>
-            <Image src={image} />
+            <ProductImage src={image} />
           </ImageContainer>
           <DetailContainer>
             <ProductDetail>
