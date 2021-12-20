@@ -12,6 +12,7 @@ import Loader from "../common/Loader";
 import ProductControlBar from "./ProductControlBar";
 import ProductList from "./ProductList";
 import { Select } from "../common/Select";
+import LoadingError from "../common/LoadingError";
 
 // Sort function to sort products based on the filter type provided.
 const sortProducts = (filterType: FilterType, products: Product[]) => {
@@ -45,7 +46,7 @@ export default function ProductGallery() {
   const filter = useAppSelector(selectFilterType);
   const dispatch = useAppDispatch();
   const [filteredData, setFilteredData] = useState<Product[]>([]);
-  const { data, isLoading, isError } = useGetProductsQuery(null);
+  const { data, isLoading, isError, refetch } = useGetProductsQuery(null);
 
   useEffect(() => {
     // Sort products based on either a change to the filter selection or a refresh of the data
@@ -59,8 +60,15 @@ export default function ProductGallery() {
     dispatch(setFilterType(e.target.value as FilterType));
   };
 
+  const onRetryFetchProducts = () => refetch();
+
   if (isError) {
-    return <p>An error occurrred while loading products</p>;
+    return (
+      <LoadingError
+        message="An error occurrred while loading products"
+        onRetry={onRetryFetchProducts}
+      />
+    );
   }
 
   if (isLoading) {
