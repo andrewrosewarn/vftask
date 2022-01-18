@@ -29,7 +29,7 @@ function transformResponse(response: ProductApiResponse) {
   return products;
 }
 
-//  Api which defines end points to be used by this service, at present a single getProducts endpoint...
+//  Api which defines end points to be used by this service, at present a single getProducts endpoint.
 
 export const productApi = createApi({
   reducerPath: "productApi",
