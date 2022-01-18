@@ -1,5 +1,5 @@
 // Hooks to extend the the useDispatch and useSelector hooks from redux toolkit
-// and add typing for typescript.
+// and add typing for typescript..
 
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store";
