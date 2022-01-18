@@ -5,7 +5,7 @@ import { Product } from "../interfaces/product";
 import { ProductApiResponse } from "../interfaces/productApi";
 
 // An optional transform function which accepts data from the api response and returns a transformed
-// structure to be cached.  Used in this case to flatten the api response as agreed.
+// structure to be cached.  Used in this case to flatten the api response as agreed..
 
 function transformResponse(response: ProductApiResponse) {
   const products: Product[] = [];
